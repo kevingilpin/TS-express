@@ -11,7 +11,7 @@ function requireAuth(req: Request, res: Response, next: NextFunction): void {
   res.send('Not permitted');
 }
 
-@controller('')
+@controller()
 class RootController {
   @get('/')
   getRoot(req: Request, res: Response) {

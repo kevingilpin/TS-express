@@ -22,7 +22,7 @@ function bodyValidators(keys: string[]): RequestHandler {
   };
 }
 
-export function controller(routePrefix: string) {
+export function controller(routePrefix: string = '') {
   return function (target: Function) {
     const router = AppRouter.getInstance();
 
@@ -47,6 +47,8 @@ export function controller(routePrefix: string) {
         [];
 
       const validator = bodyValidators(requiredBodyProps);
+
+      console.log(`${routePrefix}-${path}-`);
 
       if (path) {
         router[method](
